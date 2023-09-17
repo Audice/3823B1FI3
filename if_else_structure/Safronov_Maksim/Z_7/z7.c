@@ -5,12 +5,12 @@
 void main() {
     int a,b,c;
     double itog;
-    printf("Оценки по 3 экзаменам: "); 
+    printf("РћС†РµРЅРєРё РїРѕ 3 СЌРєР·Р°РјРµРЅР°Рј: "); 
     scanf("%d %d %d", &a, &b, &c);
     itog = (a+b+c)/3;
     if (itog >= 4.5) {
-        printf("Отличник");}
+        printf("РћС‚Р»РёС‡РЅРёРє");}
     else if (itog >= 3.5) {
-        printf("Хорошист");}
+        printf("РҐРѕСЂРѕС€РёСЃС‚");}
     else {
-        printf("Двоечник");}}
+        printf("Р”РІРѕРµС‡РЅРёРє");}}

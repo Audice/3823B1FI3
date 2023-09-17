@@ -6,7 +6,7 @@ void main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     double pi = 3.14, r, l;
-    printf("длина окр-ти равна: "); scanf("%lf", &l);
+    printf("РґР»РёРЅР° РѕРєСЂ-С‚Рё СЂР°РІРЅР°: "); scanf("%lf", &l);
     r = l/(2*pi);
-    printf("Площадь круга равна: %lf", pi*pow(r,2));
+    printf("РџР»РѕС‰Р°РґСЊ РєСЂСѓРіР° СЂР°РІРЅР°: %lf", pi*pow(r,2));
 }
