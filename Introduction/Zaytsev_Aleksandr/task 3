@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+    
+    setlocale(LC_ALL, "Rus");
+
+    float v0, river, time1, s1, s2, time2;
+    printf("Введите скорость лодки в стоячей воде\n");
+    scanf("%f", &v0);
+    printf("Введите скорость течения реки\n");
+    scanf("%f", &river);
+    printf("Введите время движения лодки по озеру\n");
+    scanf("%f", &time1);
+    printf("Введите время движения лодки против течения\n");
+    scanf("%f", &time2);
+    s1 = time1 * v0; //путь по озеру
+    s2 = time2 * (v0 - river); //путь против течения
+    printf("Лодка прошла путь %.2f", s1 + s2);
+    
+}
