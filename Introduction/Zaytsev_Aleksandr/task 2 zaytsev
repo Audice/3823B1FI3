@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+    
+    setlocale(LC_ALL, "Rus");
+
+    float a, b, midplus, midmod;
+    printf("Введите два числа\n");
+    scanf("%f %f", &a, &b);
+    midplus = (a*a + b*b) / 2;
+    printf("Среднее арифмитическое квадратов а и в это %.2f\n", midplus);
+    if (a < 0){
+        a = a * (-1);
+    }
+    if (b < 0){
+        b = b * (-1);
+    }
+    midmod = (a + b) / 2;
+    printf("Среднее арифмитическое модулей а и в %.2f", midmod);
+    return 0;
+}
