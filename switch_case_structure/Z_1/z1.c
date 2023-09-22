@@ -5,60 +5,61 @@
 void main(){
     setlocale(LC_ALL, "Rus");
     int a, sot, dec, edin;
-    printf("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: "); scanf("%d", &a);
+    printf("Введите число: "); scanf("%d", &a);
     sot = a/100;
     dec = a/10%10;
     edin = a%10;
     switch(sot){
-        case 1: printf("РЎС‚Рѕ "); break;
-        case 2: printf("Р”РІРµСЃС‚Рё "); break;
-        case 3: printf("РўСЂРёСЃС‚Р° "); break;
-        case 4: printf("Р§РµС‚С‹СЂРµСЃС‚Р° "); break;
-        case 5: printf("РџСЏС‚СЊСЃРѕС‚ "); break;
-        case 6: printf("РЁРµСЃСЊС‚СЃРѕС‚ "); break;
-        case 7: printf("РЎРµРјСЊСЃРѕС‚ "); break;
-        case 8: printf("Р’РѕСЃРµРјСЊСЃРѕС‚ "); break;
-        case 9: printf("Р”РµРІСЏС‚СЊСЃРѕС‚ "); break;}
+        case 1: printf("Сто "); break;
+        case 2: printf("Двести "); break;
+        case 3: printf("Триста "); break;
+        case 4: printf("Четыреста "); break;
+        case 5: printf("Пятьсот "); break;
+        case 6: printf("Шесьтсот "); break;
+        case 7: printf("Семьсот "); break;
+        case 8: printf("Восемьсот "); break;
+        case 9: printf("Девятьсот "); break;}
     if (dec == 0){
         switch(edin){
-            case 1: printf("РѕРґРёРЅ"); break;
-            case 2: printf("Р”РІР°"); break;
-            case 3: printf("РўСЂРё"); break;
-            case 4: printf("Р§РµС‚С‹СЂРµ"); break;
-            case 5: printf("РџСЏС‚СЊ"); break;
-            case 6: printf("РЁРµСЃСЊ"); break;
-            case 7: printf("РЎРµРјСЊ"); break;
-            case 8: printf("Р’РѕСЃРµРјСЊ"); break;
-            case 9: printf("Р”РµРІСЏС‚СЊ"); break;}}
+            case 1: printf("один"); break;
+            case 2: printf("Два"); break;
+            case 3: printf("Три"); break;
+            case 4: printf("Четыре"); break;
+            case 5: printf("Пять"); break;
+            case 6: printf("Шесь"); break;
+            case 7: printf("Семь"); break;
+            case 8: printf("Восемь"); break;
+            case 9: printf("Девять"); break;}}
     else if (dec == 1) {
         switch(edin){
-            case 1: printf("РѕРґРёРЅРЅР°РґС†Р°С‚СЊ"); break;
-            case 2: printf("РґРІРµРЅР°РґС†Р°С‚СЊ"); break;
-            case 3: printf("РўСЂРёРЅР°РґС†Р°С‚СЊ"); break;
-            case 4: printf("Р§РµС‚С‹СЂРЅР°РґС†Р°С‚СЊ"); break;
-            case 5: printf("РџСЏС‚РЅР°РґС†Р°С‚СЊ"); break;
-            case 6: printf("РЁРµСЃРЅР°РґС†Р°С‚СЊ"); break;
-            case 7: printf("РЎРµРјРЅР°РґС†Р°С‚СЊ"); break;
-            case 8: printf("Р’РѕСЃРµРјРЅР°РґС†Р°С‚СЊ"); break;
-            case 9: printf("Р”РµРІСЏС‚РЅР°РґС†Р°С‚СЊ"); break;}}
+            case 0: printf("десять"); break;
+            case 1: printf("одиннадцать"); break;
+            case 2: printf("двенадцать"); break;
+            case 3: printf("Тринадцать"); break;
+            case 4: printf("Четырнадцать"); break;
+            case 5: printf("Пятнадцать"); break;
+            case 6: printf("Шеснадцать"); break;
+            case 7: printf("Семнадцать"); break;
+            case 8: printf("Восемнадцать"); break;
+            case 9: printf("Девятнадцать"); break;}}
     else{
         switch(dec){
-            case 2: printf("РґРІР°РґС†Р°С‚СЊ "); break;
-            case 3: printf("С‚СЂРёРґС†Р°С‚СЊ "); break;
-            case 4: printf("СЃРѕСЂРѕРє "); break;
-            case 5: printf("РїСЏС‚СЊРґРµСЃСЏС‚ "); break;
-            case 6: printf("С€РµСЃС‚СЊРґРµСЃСЏС‚ "); break;
-            case 7: printf("СЃРµРјСЊРґРµСЃСЏС‚ "); break;
-            case 8: printf("РІРѕСЃРµРјСЊРґРµСЃСЏС‚ "); break;
-            case 9: printf("РґРµРІСЏРЅРѕСЃС‚Р° "); break;}
+            case 2: printf("двадцать "); break;
+            case 3: printf("тридцать "); break;
+            case 4: printf("сорок "); break;
+            case 5: printf("пятьдесят "); break;
+            case 6: printf("шестьдесят "); break;
+            case 7: printf("семьдесят "); break;
+            case 8: printf("восемьдесят "); break;
+            case 9: printf("девяноста "); break;}
         switch(edin){
-            case 1: printf("РѕРґРёРЅ"); break;
-            case 2: printf("РґРІР°"); break;
-            case 3: printf("С‚СЂРё"); break;
-            case 4: printf("С‡РµС‚С‹СЂРµ"); break;
-            case 5: printf("РїСЏС‚СЊ"); break;
-            case 6: printf("С€РµСЃС‚СЊ"); break;
-            case 7: printf("СЃРµРјСЊ"); break;
-            case 8: printf("РІРѕСЃРµРјСЊ"); break;
-            case 9: printf("РґРµРІСЏС‚СЊ"); break;}}
+            case 1: printf("один"); break;
+            case 2: printf("два"); break;
+            case 3: printf("три"); break;
+            case 4: printf("четыре"); break;
+            case 5: printf("пять"); break;
+            case 6: printf("шесть"); break;
+            case 7: printf("семь"); break;
+            case 8: printf("восемь"); break;
+            case 9: printf("девять"); break;}}
 }
