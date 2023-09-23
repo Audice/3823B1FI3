@@ -1,0 +1,37 @@
+#include <locale.h>
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    
+    setlocale(LC_ALL, "Rus");
+    float year;
+    float ost1, ost2, ost3;
+    int ost;
+    printf("Введите год \n");
+    scanf("%f", &year);
+    ost1 = (float)year / 12;    // цикл календаря 12 лет, года обезьяны кролика и т д отличаются остатком при делении
+    ost2 = ost1 * 100;
+    ost3 = (int)ost2 % 100;
+    ost = (int)ost3;
+
+
+    switch(ost){
+        case (33): printf("Год крысы"); break;
+        case (41): printf("Год быка"); break;
+        case (50): printf("Год тигра"); break;
+        case (58): printf("Год кролика"); break;
+        case (66): printf("год дракона"); break;
+        case (75): printf("Год змеи"); break;
+        case (83): printf("Год лошади"); break;
+        case (91): printf("Год овцы"); break;
+        case (0): printf("Год обезьяны"); break;
+        case (8): printf("Год петуха"); break;
+        case (16): printf("Год собаки"); break;
+        case (25): printf("Год свиньи"); break;
+        
+    }
+    
+    
+    
+}
