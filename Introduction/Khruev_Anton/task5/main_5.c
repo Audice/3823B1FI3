@@ -14,7 +14,7 @@ void main(){
     float s = pi*pow(r,2);
     
     
-    printf("%f",s);
+    printf("S = %f",s);
     
 
 
