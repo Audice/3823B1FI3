@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+    
+    setlocale(LC_ALL, "Rus");
+
+    float l,s, p = 3.14;
+    printf("Введите длину окружности\n");
+    scanf("%f", &l); // s = pr*2 and l = 2pr подставляем в формулу
+    s = (l*l) / (4*p);
+    printf("Площадь круга равна %.2f", s);
+    
+    
+}
