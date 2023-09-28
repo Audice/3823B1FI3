@@ -1,0 +1,119 @@
+
+#include <stdio.h>
+#include <locale.h>
+
+#include <math.h>
+int main()
+{
+    printf("введите число от 0 до 100 рублей\n");
+    float sum;
+    scanf("%f", &sum);
+    int allsum;
+    allsum = (int)(sum * 100);
+    
+    int rub, rub1, rub2;
+    rub = allsum / 100; //рубли
+    rub1 = rub / 10; // десятки рублей
+    rub2 = rub % 10; // единицы рублей
+    
+    int kop, kop1, kop2;
+    kop = allsum % 100; //все копейки
+    kop1 = kop / 10; // десятки копеек
+    kop2 = kop % 10; // единицы копеек
+    
+    
+    switch(rub1){
+        case 0: printf(" "); break;
+        case 1: 
+        switch(rub2){
+            case 1: printf("одиннадцать рублей "); break;
+            case 2: printf("двенадцать рублей "); break;
+            case 3: printf("тринадцать рублей "); break;
+            case 4: printf("четырнадцать рублей "); break;
+            case 5: printf("пятнадцать рублей "); break;
+            case 6: printf("шестнадцать рублей "); break;
+            case 7: printf("семьнадцать рублей "); break;
+            case 8: printf("восемнадцать рублей "); break;
+            case 9: printf("девятнадцать рублей "); break;
+            
+        }
+        goto here;
+        break;
+        case 2: printf("двадцать "); break;
+        case 3: printf("тридцать ");break;
+        case 4: printf("сорок ");break;
+        case 5: printf("пятьдесят ");break;
+        case 6: printf("шестьдесят ");break;
+        case 7: printf("семьдесят ");break;
+        case 8: printf("восемьдесят ");break;
+        case 9: printf("девяносто ");break;
+        case 10: printf("сто рублей ");break;
+    }
+    
+    switch(rub2){
+        case 0: printf(" "); break;
+        case 1: printf("один рубль ");break;
+        case 2: printf("два рубля "); break;
+        case 3: printf("три рубля ");break;
+        case 4: printf("четыре рубля ");break;
+        case 5: printf("пять рублей ");break;
+        case 6: printf("шесть рублей ");break;
+        case 7: printf("семь рублей ");break;
+        case 8: printf("восемь рублей ");break;
+        case 9: printf("девять рублей ");break;
+        
+    }
+    
+    here:
+    printf(" ");
+    
+    
+    switch(kop1){
+        case 0: printf(" "); break;
+        case 1: 
+        switch(rub2){
+            case 1: printf("одиннадцать копеек "); break;
+            case 2: printf("двенадцать копеек "); break;
+            case 3: printf("тринадцать копеек "); break;
+            case 4: printf("четырнадцать копеек "); break;
+            case 5: printf("пятнадцать копеек "); break;
+            case 6: printf("шестнадцать копеек "); break;
+            case 7: printf("семьнадцать копеек "); break;
+            case 8: printf("восемнадцать копеек "); break;
+            case 9: printf("девятнадцать копеек "); break;
+            
+        }
+        goto herer;
+        break;
+        case 2: printf("двадцать "); break;
+        case 3: printf("тридцать ");break;
+        case 4: printf("сорок ");break;
+        case 5: printf("пятьдесят ");break;
+        case 6: printf("шестьдесят ");break;
+        case 7: printf("семьдесят ");break;
+        case 8: printf("восемьдесят ");break;
+        case 9: printf("девяносто ");break;
+        case 10: printf("сто ");break;
+    }
+    
+    switch(kop2){
+        case 0: printf(" "); break;
+        case 1: printf("одна копейка ");break;
+        case 2: printf("две копейки "); break;
+        case 3: printf("три копейки ");break;
+        case 4: printf("четыре копейки ");break;
+        case 5: printf("пять копеек ");break;
+        case 6: printf("шесть копеек ");break;
+        case 7: printf("семь копеек ");break;
+        case 8: printf("восемь копеек ");break;
+        case 9: printf("девять копеек ");break;
+        
+    }
+    
+    herer:
+    printf(" ");
+    
+    
+    
+    return 0;
+}
