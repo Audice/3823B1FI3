@@ -1,0 +1,63 @@
+#include <locale.h>
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    
+    setlocale(LC_ALL, "Rus");
+    int a, fir, sec, rhir;
+    printf("Введите число от 100 до 999\n");
+    scanf("%d", &a);
+    fir = a / 100;
+    sec = (a / 10) % 10;
+    rhir = a % 10;
+    switch (fir){
+        case 1: printf("Сто "); break;
+        case 2: printf("Двести ");break;
+        case 3: printf("Триста ");break;
+        case 4: printf("Четыреста ");break;
+        case 5: printf("Пятьсот ");break;
+        case 6: printf("Шестьсот ");break;
+        case 7: printf("Семьсот ");break;
+        case 8: printf("Восемьсот ");break;
+        case 9: printf("Девятьсот ");break;
+    }
+    switch (sec){
+        case 1: 
+        switch(rhir){
+            case 1: printf("одиннадцать "); break;
+            case 2: printf("двенадцать "); break;
+            case 3: printf("тринадцать "); break;
+            case 4: printf("четырнадцать "); break;
+            case 5: printf("пятнадцать "); break;
+            case 6: printf("шестнадцать "); break;
+            case 7: printf("семнадцать "); break;
+            case 8: printf("восемьнадцать "); break;
+            case 9: printf("девятнадцать "); break;
+        }
+        goto here;
+        break;
+        case 2: printf("Двадцать ");break;
+        case 3: printf("Тридцать ");break;
+        case 4: printf("Сорок ");break;
+        case 5: printf("Пятьдесят ");break;
+        case 6: printf("Шестьдесят ");break;
+        case 7: printf("Семьдесят ");break;
+        case 8: printf("Восемьдесят ");break;
+        case 9: printf("Девяносто ");break;
+    }
+    switch (rhir){
+        case 1: printf("один"); break;
+        case 2: printf("Два");break;
+        case 3: printf("Три");break;
+        case 4: printf("Четыре");break;
+        case 5: printf("Пять");break;
+        case 6: printf("Шесть");break;
+        case 7: printf("Семь");break;
+        case 8: printf("Восемь");break;
+        case 9: printf("Девять");break;
+    }
+    here:
+    printf(" ");
+    
+}
