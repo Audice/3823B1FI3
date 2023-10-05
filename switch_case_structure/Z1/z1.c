@@ -4,11 +4,11 @@
 int main()
 {
     setlocale(LC_ALL, "Rus");
-    printf("Введите число через пробел (например 2 3 5) ");
+    printf("Введите число  ");
     int a,b,c,d;
     scanf("%d", &a);
     b=a/100;
-    c=a/10;
+    c=a/10%10;
     d=a%10;
     switch (b)
     {
@@ -33,6 +33,32 @@ int main()
     default:
         break;
     }
+    if(c == 1 && d > 0){
+    switch (d)
+    {
+    case 1: printf("Одиннадцать");
+      break;
+      case 2: printf("Двенадцать");
+      break;
+      case 3: printf("Тринадцать");
+      break;
+      case 4: printf("Четырнадцать");
+      break;
+      case 5: printf("Пятнадцать");
+      break;
+      case 6: printf("Шестнадцать");
+      break;
+      case 7: printf("Семнадцать");
+      break;
+      case 8: printf("Восемнадцать");
+      break;
+      case 9: printf("Девятнадцать");
+      break;
+    
+    default:
+      break;
+    }
+    }else{
     switch (c)
     {
     case 1: printf("десять ");
@@ -78,5 +104,5 @@ int main()
         break;      
     default:
         break;
-    }
+    }}
 }
