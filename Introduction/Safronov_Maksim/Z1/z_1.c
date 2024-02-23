@@ -13,16 +13,10 @@ void itog_system(long double** matrix, int size){
     cout << endl;
 }
 
-void itog_reshenie(long double** matrix, int* hoh, int size){
-    int total = 0;
+void itog_reshenie(long double** matrix, int size){
     cout << "Itogovoe Reshenie: " << endl;
     for (int i = 0; i<size; i++){
-        if (hoh[total] == i+1){
-            cout << "x"; cout << hoh[total+1] << " = "; cout << matrix[i][size]/matrix[i][i] << endl;}
-        else if (hoh[total+1] == i+1){
-            cout << "x"; cout << hoh[total] << " = "; cout << matrix[i][size]/matrix[i][i] << endl; total+=2;}
-        else {
-            cout << "x"; cout << i+1 << " = "; cout << matrix[i][size]/matrix[i][i] << endl;}}
+        cout << "x"; cout << i+1 << " = "; cout << matrix[i][size]/matrix[i][i] << endl;}
 }
 
 void print_matrix_gaussa(long double** matrix, int size){
@@ -49,11 +43,11 @@ void vector_neviazki(long double** matrix, long double** matrix_copy, long doubl
     delete[] array;
 }
 
-int replace_zero(long double** matrix, int size, int col, int b_col, int* hoh){
-    int no_zero = 0, total = 0;
+int replace_zero(long double** matrix, int size, int col, int b_col){
+    int no_zero = 0;
     for (int j = 0; j<size; j++){
         if (matrix[j][col]!=0){
-            no_zero = j;break;}}
+            no_zero = j; break;}}
     
     if (no_zero == 0){
         cout << "Система: " << endl;
@@ -63,23 +57,21 @@ int replace_zero(long double** matrix, int size, int col, int b_col, int* hoh){
         else {
             cout << "не имеет решений" << endl;}
         return 1;}
-    hoh[total] = col+1; hoh[total+1] = no_zero+1;
-    total+=2;
     for (int i = 0; i<size; i++){
-        for (int j = 0; j<size; j++){
-            if (j == no_zero){
-                long double a = matrix[i][col];
-                matrix[i][col] = matrix[i][j];
+        for (int j = 0; j<size+1; j++){
+            if (i == no_zero){
+                long double a = matrix[col][j];
+                matrix[col][j] = matrix[i][j];
                 matrix[i][j] = a;}}}
     return 0;
 }
 
-int reverse_method_gaussa(long double** matrix, int size, int* hoh){
+int reverse_method_gaussa(long double** matrix, int size){
     cout << "Reverse Method Gaussa: " << endl;
     long double ved_elem = 0;
     for (int i = 0; i<size; i++){
         if (matrix[i][i] == 0){
-            if (replace_zero(matrix, size, i, matrix[i][size], hoh) == 1){
+            if (replace_zero(matrix, size, i, matrix[i][size]) == 1){
                 return 1;}}
         ved_elem = matrix[i][i];
         print_matrix_gaussa(matrix, size);
@@ -92,12 +84,12 @@ int reverse_method_gaussa(long double** matrix, int size, int* hoh){
     return 0;
 }
 
-void straight_method_gaussa(long double** matrix, int size, int* hoh){
+void straight_method_gaussa(long double** matrix, int size){
     cout << "Straight Method Gaussa: " << endl;
     long double ved_elem = 0;
     for (int i = 0; i<size; i++){
         if (matrix[i][i] == 0){
-            if (replace_zero(matrix, size, i, matrix[i][size], hoh) == 1){
+            if (replace_zero(matrix, size, i, matrix[i][size]) == 1){
                 break;}}
         ved_elem = matrix[i][i];
         print_matrix_gaussa(matrix, size);
@@ -113,7 +105,6 @@ int main(){
     int size, a;
     random_device rd; mt19937 gen(rd()); uniform_int_distribution<> dist(-9,9);
     std::cout << "Введите размер массива: " << endl; cin >> size;
-    int* hoh = new int [100];
     long double** matrix = new long double* [size];
     long double** matrix_copy = new long double* [size];
     long double** matrix_copy2 = new long double* [size];
@@ -139,7 +130,6 @@ int main(){
             matrix_copy2[i][j] = matrix[i][j];}}*/
 
             
-    long double arr[size*size+size] = {0};
     
     for (int i = 0; i<size; i++){
         for (int j = 0; j<size+1; j++){
@@ -149,7 +139,7 @@ int main(){
             }
         cout << "\n";}
 
-    cout << "Начальная матрица:" << endl;
+    cout << "Начальная маьрица:" << endl;
     
     for (int i = 0; i<size; i++){
         for (int j = 0; j<size+1; j++){
@@ -168,12 +158,12 @@ int main(){
 
 
 
-    if (reverse_method_gaussa(matrix, size, hoh) == 0){
+    if (reverse_method_gaussa(matrix, size) == 0){
         itog_system(matrix, size);
-        straight_method_gaussa(matrix_copy2, size, hoh);
+        straight_method_gaussa(matrix_copy2, size);
         itog_system(matrix_copy2, size);
         vector_neviazki (matrix, matrix_copy, vector_b, size);
-        itog_reshenie (matrix, hoh, size);}
+        itog_reshenie(matrix, size);}
     
     for (int i = 0; i<size; i++){
         delete[] matrix[i]; delete[] matrix_copy[i]; delete[] matrix_copy2[i];
