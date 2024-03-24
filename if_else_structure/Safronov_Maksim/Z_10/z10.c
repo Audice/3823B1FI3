@@ -5,12 +5,12 @@
 
 class Fraction{
 private:
-    int32_t _numerator;
-    uint32_t _denominator;
+    long long int _numerator;
+    long long int _denominator;
 public:
     Fraction();
 
-    Fraction(int32_t numerator, uint32_t denominator){
+    Fraction(long long int numerator, long long int denominator){
 
         _numerator = numerator;
         if (denominator == 0)
@@ -28,57 +28,57 @@ public:
     }
 
     Fraction operator+(const Fraction& fraction)const{
-        int32_t new_numerator = fraction._numerator * _denominator 
+        long long int new_numerator = fraction._numerator * _denominator 
                                 + _numerator * fraction._denominator; 
-        uint32_t new_denominator = _denominator * fraction._denominator;
+        long long int new_denominator = _denominator * fraction._denominator;
         Fraction result = Fraction(new_numerator, new_denominator);
         return result;
     }
     Fraction operator-(const Fraction& fraction)const{
-        int32_t new_numerator = _numerator * fraction._denominator 
+        long long int new_numerator = _numerator * fraction._denominator 
                                 - fraction._numerator * _denominator; 
-        uint32_t new_denominator = _denominator * fraction._denominator;
+        long long int new_denominator = _denominator * fraction._denominator;
         
         Fraction result = Fraction(new_numerator, new_denominator);
         return result;
     }
     Fraction operator*(const Fraction& fraction)const{
-        int32_t new_numerator = fraction._numerator * _numerator; 
-        uint32_t new_denominator = _denominator * fraction._denominator;
+        long long int new_numerator = fraction._numerator * _numerator; 
+        long long int new_denominator = _denominator * fraction._denominator;
         
         Fraction result = Fraction(new_numerator, new_denominator);
         return result;
     }
 
     Fraction operator*(const int n)const{
-        int32_t new_numerator = _numerator*n;
+        long long int new_numerator = _numerator*n;
         Fraction result = Fraction(new_numerator, _denominator);
         return result;
     }
 
     Fraction operator/(const Fraction& fraction)const{
-        int32_t new_numerator = fraction._denominator * _numerator; 
-        uint32_t new_denominator = _denominator * fraction._numerator;
+        long long int new_numerator = fraction._denominator * _numerator; 
+        long long int new_denominator = _denominator * fraction._numerator;
         
         Fraction result = Fraction(new_numerator, new_denominator);
         return result;
     }
     Fraction operator/(Fraction& fraction){
-        int32_t new_numerator = fraction._denominator * _numerator; 
-        uint32_t new_denominator = _denominator * fraction._numerator;
+        long long int new_numerator = fraction._denominator * _numerator; 
+        long long int new_denominator = _denominator * fraction._numerator;
         
         Fraction result = Fraction(new_numerator, new_denominator);
         return result;
     }
     Fraction operator+(const int num) const {
-        int32_t new_numerator = _numerator + num * _denominator;
+        long long int new_numerator = _numerator + num * _denominator;
         
         Fraction result = Fraction(new_numerator, _denominator);
         return result;  
     }
 
     Fraction operator-(const int num) const {
-        int32_t new_numerator = _numerator - num * _denominator;
+        long long int new_numerator = _numerator - num * _denominator;
         
         Fraction result = Fraction(new_numerator, _denominator);
         return result;  
@@ -138,8 +138,8 @@ public:
         _numerator-=_denominator;
         return temp;}
     Fraction operator^(const int num) const{
-        int32_t new_numerator = pow(_numerator, num);
-        int32_t new_denominator = pow(_denominator, num);
+        long long int new_numerator = pow(_numerator, num);
+        long long int new_denominator = pow(_denominator, num);
         return Fraction(new_numerator, new_denominator);
     }
     Fraction operator~() const{
@@ -149,15 +149,15 @@ public:
     Fraction operator-() {
         int32_t new_numerator = -_numerator;
         return Fraction(new_numerator, _denominator);}
-    Fraction sqr(const int32_t num){
+    Fraction sqr(const long long int num){
         int znak = 0;
         if (num<0){znak = 1;}
-        double new_numerator = sqrt(double(abs(num)));
+        long double new_numerator = sqrt(double(abs(num)));
         return fraction_reduction_sqr(new_numerator, znak);}
-    Fraction fraction_reduction_sqr(int32_t num, int znak){
-        double number = num;
+    Fraction fraction_reduction_sqr(long double num, int znak){
+        long double number = num;
         std::ostringstream strs; strs << number; std::string _str = strs.str();
-        int full = std::stoi( _str ), real = 0, total = 0; bool flag = false;
+        long long int full = std::stoi( _str ), real = 0, total = 0; bool flag = false;
         for (int i = 0; i<_str.length(); i++){
             if (flag == true){
                 char s = _str[i]; 
@@ -165,7 +165,7 @@ public:
                 total+=1;}
             if (_str[i] == '.'){
                 flag = true;}}
-        full = full*pow(10, total)+real; real = pow(10, total); int a = full, b = real;
+        full = full*pow(10, total)+real; real = pow(10, total); long long int a = full, b = real;
         while (a!=b){
                 if (a > b) {a = a-b;}
                 else {b = b-a;}}
@@ -176,11 +176,11 @@ public:
         int8_t znak = 0;
         if (obj._numerator < 0){
             znak = 1;}
-        int32_t a = abs(obj._numerator), b = obj._denominator, full = abs(a), real = b; 
+        long long int a = abs(obj._numerator), b = obj._denominator, full = abs(a), real = b; 
         while (a!=b){
-                if (a > b) {a = a-b;}
-                else {b = b-a;}}
-            full/=a; real/=a;
+            if (a > b) {a = a-b;}
+            else {b = b-a;}}
+        full/=a; real/=a;
         if (znak == 1){full = -full;}
         return Fraction(full, real);
     }
@@ -307,8 +307,10 @@ class Quadratic{
             Fraction x = (-b)/(a*2); x = x.fraction_reduction(x);
             return x;}
         Fraction* roots_equation(Fraction a, Fraction b, Fraction dis){
-            Fraction x1 = ((-b)+dis)/(a*2); x1 = x1.fraction_reduction(x1);
-            Fraction x2 = ((-b)-dis)/(a*2); x2 = x2.fraction_reduction(x2);
+            Fraction x1 = ((-b)+dis)/(a*2); 
+            x1 = x1.fraction_reduction(x1);
+            Fraction x2 = ((-b)-dis)/(a*2); 
+            x2 = x2.fraction_reduction(x2);
             Fraction* mas = new Fraction[2]; mas[0] = x1; mas[1] = x2;
             return mas;}
         Complex compl_roots_equation(Fraction a, Fraction b, Fraction dis){
